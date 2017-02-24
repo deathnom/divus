@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +17,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import Controller.ActionListeners;
+import Model.Map;
 
 
 public class Gui extends JFrame {
@@ -69,19 +71,26 @@ public class Gui extends JFrame {
 	public void addPanel(JFrame frame) {
 		JPanel panel = new JPanel(new GridLayout(8,16));
 		panel.setBackground(Color.GRAY);
+		ActionListener actionListener = new ActionListeners();
+		KeyListener Keylistener= new ActionListeners();
 		for(int i=0; i<8; i++){
 			  for(int j=0; j<16; j++){
 				  squares[i][j] = new JButton();
 				  squares[i][j].setText("");
-				  
+				  squares[i][j].addActionListener(actionListener);
 				  squares[i][j].setVisible(true);
 				  panel.add(squares[i][j]);
+				  squares[i][j].setFocusable(true);
+				  squares[i][j].requestFocus(true);
+				  squares[i][j].addKeyListener(Keylistener);
 				 }
+			  
 			  }
-		squares[1][1].setBackground(Color.BLACK);
+		Map.initialize();
 		frame.add(panel);
 	}
 	
+
 
 	
 }
