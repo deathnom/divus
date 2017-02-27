@@ -5,9 +5,10 @@ import java.awt.Color;
 import View.Gui;
 
 public class Player {
-	
-	public static int playerx=4;
-	public static int playery=6;
+	//causes issue between collision
+	public static int playerx=3;
+	public static int playery=3;
+	//
 	public static void playerlocationMouse(int y, int x){
 		playerx=x;
 		playery=y;
