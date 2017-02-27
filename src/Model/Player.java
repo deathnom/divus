@@ -19,7 +19,7 @@ public class Player {
 			for(int j=0; j<16; j++ ){
 				
 	Gui.squares[i][j].setBackground(Color.GREEN);
-	Obstacles.Obstacle();
+	Obstacles.Obstacle(1);
 			}
 		}
 		Gui.squares[playery][playerx].setBackground(Color.BLACK);

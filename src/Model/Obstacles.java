@@ -10,8 +10,6 @@ import Controller.ActionListeners;
 import View.Gui;
 
 public class Obstacles {
-	static int a = Player.playerx;
-	static int b = Player.playery;
 	static ArrayList<JButton> Obstacle = new ArrayList<JButton>();
 	 
 	public Obstacles(int mapChoice){
@@ -20,9 +18,11 @@ public class Obstacles {
 		}
 	}
 	
-	public static void Obstacle(){
+	public static void Obstacle(int mapChoice){
+		if (mapChoice==1){
 		Obstacle.add(Gui.squares[2][2]);
 		Obstacle.add(Gui.squares[2][3]);
+		Obstacle.add(Gui.squares[4][4]);
 		for(int i=0; i<8; i++){
 			for(int j=0; j<16; j++){
 				if(Obstacle.contains(Gui.squares[i][j])){
@@ -30,25 +30,34 @@ public class Obstacles {
 				}
 			}
 		}
-		
+		}
+		else if(mapChoice==2){
+			
+		}
+		else if(mapChoice==3){
+			
+		}
+		else if(mapChoice==4){
+			
+		}
 	}
 	public static boolean movementCheck(int y, int x){
 		boolean variable=true;
-		if(Obstacle.contains(Gui.squares[2][2])){
 			//top
-			if(x+1==a&&ActionListeners.up){
+		if(Obstacle.contains(Gui.squares[x][y])){
+		if(ActionListeners.up){
 				variable=false;
 			}
 			//bot
-			if(Gui.squares[x][y]==Gui.squares[a][b]&&ActionListeners.down){
+			else if(ActionListeners.down){
 				variable=false;
 			}
 			//left
-			if(Gui.squares[x][y]==Gui.squares[a][b]&&ActionListeners.right){
+			else if(ActionListeners.right){
 				variable=false;
 			}
 			//right
-			if(Gui.squares[x][y]==Gui.squares[a][b]&&ActionListeners.left){
+			else if(ActionListeners.left){
 				variable=false;
 			}
 			else{
