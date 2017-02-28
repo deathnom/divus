@@ -78,7 +78,57 @@ public static boolean down= false;
 			}
 		
 		}
+if(e.getKeyCode()== KeyEvent.VK_UP){
+			
+			
+			if(Player.playery>0){
+				up=true;
+				if(Obstacles.movementCheck(Player.playerx, (Player.playery-1))){
+					Player.playery-=1;
+				}
+				up=false;
+				
+			}
+			else if(Player.playery==0&&Map.mapChoice==2){
+				Obstacles.Obstacle.clear();
+				Player.playery+=7;
+				Map.mapChoice=1;
+			}
+			else if(Player.playery==0&&Map.mapChoice==5){
+				Obstacles.Obstacle.clear();
+				Player.playery+=7;
+				Map.mapChoice=2;
+			}
+		
+		}
 		else if(e.getKeyCode()==KeyEvent.VK_S){
+			
+			if(Player.playery<7){
+				down=true;
+				if(Obstacles.movementCheck(Player.playerx, (Player.playery+1))){
+					Player.playery+=1;
+				}
+			
+			down=false;
+			}
+			else if(Player.playery==7&&Map.mapChoice==1){
+				Obstacles.Obstacle.clear();
+				Player.playery-=7;
+				Map.mapChoice=2;
+			}
+			else if(Player.playery==7&&Map.mapChoice==3){
+				Obstacles.Obstacle.clear();
+				Player.playery-=7;
+				Map.mapChoice=4;
+			}
+			else if(Player.playery==7&&Map.mapChoice==2){
+				Obstacles.Obstacle.clear();
+				Player.playery-=7;
+				Map.mapChoice=5;
+			}
+
+			}
+else if(e.getKeyCode()==KeyEvent.VK_DOWN){
 			
 			if(Player.playery<7){
 				down=true;
@@ -122,7 +172,44 @@ public static boolean down= false;
 				
 				
 		}
+			else if(e.getKeyCode()==KeyEvent.VK_LEFT){
+				if(Player.playerx>0){
+				left=true;
+				if(Obstacles.movementCheck((Player.playerx-1), Player.playery)){
+			
+			Player.playerx-=1;
+			}	
+				left=false;
+				}
+				else if(Player.playerx==0&&Map.mapChoice==2){
+				Player.playerx+=15;
+				Obstacles.Obstacle.clear();
+				Map.mapChoice=3;
+				}
+				
+				
+		}
 			else if(e.getKeyCode()==KeyEvent.VK_D){
+				if(Player.playerx<15){
+				right=true;
+				if(Obstacles.movementCheck((Player.playerx+1), Player.playery)){
+				Player.playerx+=1;
+				}
+				right=false;
+				}
+				else if(Player.playerx==15&&Map.mapChoice==3){
+					Player.playerx-=15;
+					Obstacles.Obstacle.clear();
+					Map.mapChoice=2;
+					}
+				else if(Player.playerx==15&&Map.mapChoice==4){
+					Player.playerx-=15;
+					Obstacles.Obstacle.clear();
+					Map.mapChoice=5;
+					}
+			}
+		  
+			else if(e.getKeyCode()==KeyEvent.VK_RIGHT){
 				if(Player.playerx<15){
 				right=true;
 				if(Obstacles.movementCheck((Player.playerx+1), Player.playery)){

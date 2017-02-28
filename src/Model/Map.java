@@ -47,7 +47,24 @@ public static int mapChoice=1;
 			}
 		
 		}
-		
+		if(mapChoice==3){
+			for(int i=7; i<16; i++){
+				Gui.squares[3][i].setBackground(Color.yellow);
+				Gui.squares[4][i].setBackground(Color.yellow);
+			}
+			for(int i=3; i<8; i++){
+				Gui.squares[i][6].setBackground(Color.yellow);
+				Gui.squares[i][7].setBackground(Color.yellow);
+			}
+		}
+		if(mapChoice==4){
+			for(int i=0; i<7; i++){
+				
+			}
+		}
+		if(mapChoice==5){
+			
+		}
 	}
 	
 	
