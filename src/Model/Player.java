@@ -6,8 +6,8 @@ import View.Gui;
 
 public class Player {
 	//causes issue between collision
-	public static int playerx=3;
-	public static int playery=3;
+	public static int playerx=14;
+	public static int playery=2;
 	//
 	public static void playerlocationMouse(int y, int x){
 		playerx=x;
@@ -19,7 +19,9 @@ public class Player {
 			for(int j=0; j<16; j++ ){
 				
 	Gui.squares[i][j].setBackground(Color.GREEN);
-	Obstacles.Obstacle(1);
+	
+	Map.path();
+	Obstacles.Obstacle(Map.mapChoice);
 			}
 		}
 		Gui.squares[playery][playerx].setBackground(Color.BLACK);
