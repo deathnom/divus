@@ -2,6 +2,8 @@ package Model;
 
 import java.awt.Color;
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import Controller.ActionListeners;
@@ -9,7 +11,8 @@ import View.Gui;
 
 public class Obstacles {
 	public static ArrayList<JButton> Obstacle = new ArrayList<JButton>();
-	 
+	 public static ArrayList<String> Items = new ArrayList <String>();
+	 public static ArrayList<JButton> Inventory = new ArrayList<JButton>();
 	public Obstacles(){
 		
 			
@@ -17,7 +20,8 @@ public class Obstacles {
 	
 	
 	public static void Obstacle(int mapChoice){
-		if (mapChoice==1){
+		ImageIcon rock = new ImageIcon("Rock.png");
+		if (mapChoice==8){
 		Obstacle.add(Gui.squares[2][2]);
 		Obstacle.add(Gui.squares[2][3]);
 		Obstacle.add(Gui.squares[1][2]);
@@ -26,18 +30,19 @@ public class Obstacles {
 		for(int i=0; i<8; i++){
 			for(int j=0; j<16; j++){
 				if(Obstacle.contains(Gui.squares[i][j])){
-					Gui.squares[i][j].setBackground(Color.GRAY);
+					Gui.squares[i][j].setIcon(null);
 				}
 			}
 		}
+		Gui.squares[4][4].setIcon(rock);
 		}
-		else if(mapChoice==2){
+		else if(mapChoice==13){
 			Obstacle.add(Gui.squares[6][5]);
 			
 			for(int i=0; i<8; i++){
 				for(int j=0; j<16; j++){
 					if(Obstacle.contains(Gui.squares[i][j])){
-						Gui.squares[i][j].setBackground(Color.GRAY);
+						Gui.squares[i][j].setIcon(rock);
 					}
 				}
 			}
@@ -74,6 +79,30 @@ public class Obstacles {
 		}
 		return variable;
 	}
-	
-	
+	public static void itemCheck(){
+		if(ActionListeners.right){
+		if(movementCheck((Player.playerx+1), Player.playery)){
+			
+		}
+		if(ActionListeners.left){
+			if(movementCheck((Player.playerx-1), Player.playery)){
+		
+	}
+			
+	}
+		if(ActionListeners.up){
+			if(movementCheck(Player.playerx, (Player.playery-1))){
+		
+	}
+			
+	}
+		if(ActionListeners.down){
+			if(movementCheck(Player.playerx, (Player.playery+1))){
+		
+	}
+			
+	}
+
+		}
+	}
 }

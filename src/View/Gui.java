@@ -1,20 +1,18 @@
 package View;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import Controller.ActionListeners;
 import Model.Map;
@@ -71,6 +69,7 @@ public class Gui extends JFrame {
 	public void addPanel(JFrame frame) {
 		JPanel panel = new JPanel(new GridLayout(8,16));
 		panel.setBackground(Color.GRAY);
+	Border emptyBorder = BorderFactory.createEmptyBorder();
 		ActionListener actionListener = new ActionListeners();
 		KeyListener Keylistener= new ActionListeners();
 		for(int i=0; i<8; i++){
@@ -78,6 +77,7 @@ public class Gui extends JFrame {
 				  squares[i][j] = new JButton();
 				  squares[i][j].setText("");
 				  squares[i][j].addActionListener(actionListener);
+				  squares[i][j].setBorder(emptyBorder);
 				  squares[i][j].setVisible(true);
 				  panel.add(squares[i][j]);
 				  squares[i][j].setFocusable(true);
@@ -90,7 +90,9 @@ public class Gui extends JFrame {
 		frame.add(panel);
 	}
 	
-
+ public static void dialogueBox(){
+	 
+ }
 
 	
 }
