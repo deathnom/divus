@@ -18,6 +18,7 @@ public static boolean up=false;
 public static boolean left=false;
 public static boolean right=false;
 public static boolean down= false;
+public static boolean I=false;
 
 
 	public ActionListeners(){
@@ -33,8 +34,7 @@ public static boolean down= false;
 		for(int i=0; i<8; i++){
 			for(int j=0; j<16; j++){
 				if(e.getSource()==Gui.squares[i][j]){
-					Player.playerlocationMouse(i, j);
-				}
+					}
 			}
 		}
 		
@@ -118,7 +118,17 @@ public static boolean down= false;
 			}
 			else if(e.getKeyCode()==KeyEvent.VK_SPACE){
 				Obstacles.itemCheck();
-				Gui.dialogueBox();
+				Obstacles.checkDialogue();
+			}
+			else if(e.getKeyCode()==KeyEvent.VK_I){
+				if(I){
+					Gui.inventory(I);
+					I=false;
+				}
+				else{
+					Gui.inventory(!I);
+				I=true; 
+				}
 			}
 		Player.playerRepaint();
 			

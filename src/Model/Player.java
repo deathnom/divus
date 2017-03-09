@@ -26,7 +26,7 @@ public class Player {
 				Gui.squares[i][j].setIcon(null);
 				Gui.squares[i][j].setIcon(grass);
 
-				Map.path();
+				Map.map();
 				Obstacles.Obstacle(Map.mapChoice);
 				
 			}
